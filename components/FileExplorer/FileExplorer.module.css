@@ -1,0 +1,24 @@
+.FileExplorer {
+  border: 2px solid red;
+}
+
+@media screen and (max-width: 600px) {
+  .FileExplorer {
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+}
+
+@media screen and (601px <= width <= 1200px) {
+  .FileExplorer {
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+}
+
+@media screen and (1201px <= width) {
+  .FileExplorer {
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+}

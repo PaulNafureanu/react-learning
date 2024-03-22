@@ -1,0 +1,24 @@
+.FileViewer {
+  border: 2px solid blue;
+}
+
+@media screen and (max-width: 600px) {
+  .FileViewer {
+    grid-column: 2/3;
+    grid-row: 2/3;
+  }
+}
+
+@media screen and (601px <= width <= 1200px) {
+  .FileViewer {
+    grid-column: 2/3;
+    grid-row: 2/3;
+  }
+}
+
+@media screen and (1201px <= width) {
+  .FileViewer {
+    grid-column: 2/3;
+    grid-row: 2/3;
+  }
+}

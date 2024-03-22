@@ -1,0 +1,24 @@
+.TopMenu {
+  border: 2px solid green;
+}
+
+@media screen and (max-width: 600px) {
+  .TopMenu {
+    grid-column: span 2;
+    grid-row: 1/2;
+  }
+}
+
+@media screen and (601px <= width <= 1200px) {
+  .TopMenu {
+    grid-column: span 2;
+    grid-row: 1/2;
+  }
+}
+
+@media screen and (1201px <= width) {
+  .TopMenu {
+    grid-column: span 2;
+    grid-row: 1/2;
+  }
+}
