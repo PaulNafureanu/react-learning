@@ -1,0 +1,34 @@
+{
+  "F1": {
+    "id": "f1",
+    "name": "Folder 1",
+    "type": "Folder",
+    "depth": 0,
+    "children": ["f2", "F3"]
+  },
+  "f2": {
+    "id": "f2",
+    "name": "File 1",
+    "type": "File",
+    "depth": 1
+  },
+  "F3": {
+    "id": "F3",
+    "name": "Folder 2",
+    "type": "Folder",
+    "depth": 1,
+    "children": ["f4", "f5"]
+  },
+  "f4": {
+    "id": "f4",
+    "name": "File 2",
+    "type": "File",
+    "depth": 2
+  },
+  "f5": {
+    "id": "f5",
+    "name": "File 3",
+    "type": "File",
+    "depth": 2
+  }
+}

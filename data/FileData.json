@@ -1,0 +1,34 @@
+{
+  "f2": {
+    "fileID": "f2",
+    "metadata": {
+      "title": "Questions",
+      "author": "N. Paul",
+      "about": "Random questions.",
+      "creationDate": "",
+      "modificationDate": ""
+    },
+    "data": {
+      "q1": {
+        "questionID": "q1",
+        "question": "Is this a question?",
+        "answers": {
+          "a1": { "answer": "This is an answer.", "isTrue": false },
+          "a2": { "answer": "This is an answer.", "isTrue": false },
+          "a3": { "answer": "This is an answer.", "isTrue": true },
+          "a4": { "answer": "This is an answer.", "isTrue": false }
+        }
+      },
+      "q2": {
+        "questionID": "q2",
+        "question": "Is this the second question?",
+        "answers": {
+          "a1": { "answer": "This is another answer.", "isTrue": false },
+          "a2": { "answer": "This is another answer.", "isTrue": false },
+          "a3": { "answer": "This is another answer.", "isTrue": false },
+          "a4": { "answer": "This is another answer.", "isTrue": true }
+        }
+      }
+    }
+  }
+}
