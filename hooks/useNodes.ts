@@ -31,7 +31,7 @@ interface RemoveNodeEvent {
   type: "RemoveNode";
 }
 
-type NodesEvent = AddNodeEvent | UpdateNodeEvent | RemoveNodeEvent;
+export type NodesEvent = AddNodeEvent | UpdateNodeEvent | RemoveNodeEvent;
 
 // Utility functions for node operations:
 function addNode(nodes: Nodes): Nodes {

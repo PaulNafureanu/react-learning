@@ -1,13 +1,16 @@
 import React from "react";
-import { Nodes } from "../../hooks/useNodes";
+import { Nodes, NodesEvent } from "../../hooks/useNodes";
+import eventFnWrapper from "../../libs/EventFnWrapper";
 
 interface Props {
   nodes: Nodes;
-  onClick: (e: any) => void;
+  onClick: (e: NodesEvent) => void;
 }
 
 export default function TreeRenderer({ nodes, onClick }: Props) {
   // (Updated) Nodes -> (Updated) React Components like 'FileItem' and 'FolderItem'
 
-  return <div onClick={onClick}>React Components</div>;
+  const handleClick = eventFnWrapper(() => onClick({ type: "AddNode" }));
+
+  return <div onClick={handleClick}>React Components</div>;
 }
