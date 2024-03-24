@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   FileExplorer,
   FileItem,
@@ -10,13 +10,13 @@ import useNodes from "./hooks/useNodes";
 import styles from "./App.module.css";
 
 export default function App() {
-  const [nodes, setNodes] = useNodes();
+  const [nodes, handleNodesEvents] = useNodes();
 
   return (
     <div className={styles.App}>
       <TopMenu />
       <FileExplorer>
-        <TreeRenderer nodes={nodes} onClick={setNodes} />
+        <TreeRenderer nodes={nodes} onClick={handleNodesEvents} />
       </FileExplorer>
       <FileViewer>
         <FileItem />

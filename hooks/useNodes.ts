@@ -19,6 +19,20 @@ export interface FolderNode extends Node {
 
 export type Nodes = { [key: string]: FileNode | FolderNode };
 
+interface AddNodeEvent {
+  type: "AddNode";
+}
+
+interface UpdateNodeEvent {
+  type: "UpdateNode";
+}
+
+interface RemoveNodeEvent {
+  type: "RemoveNode";
+}
+
+type NodesEvent = AddNodeEvent | UpdateNodeEvent | RemoveNodeEvent;
+
 // Utility functions for node operations:
 function addNode(nodes: Nodes): Nodes {
   return { ...nodes };
@@ -30,35 +44,41 @@ function removeNode(nodes: Nodes): Nodes {
   return { ...nodes };
 }
 
-export default function useNodes(): [Nodes, (event?: any) => void] {
-  // Fetch Raw DB data -> (First) Nodes -> React State & Set React State -> Nodes & Set Nodes
-  // Events -> Set Nodes -> Set React State -> (New State / Rerender) -> New Nodes
+export default function useNodes(): [Nodes, (event: NodesEvent) => void] {
+  // Fetch Raw DB data -> (First) Nodes -> React State & Set React State -> Nodes & Handle Nodes' Events
+  // Events -> Handle Nodes' Events -> Set React State -> (New State / Rerender) -> New Nodes
 
   // Set default state
-  const [reactNodes, setReactNodes] = useState<Nodes>({});
+  const [stateNodes, setStateNodes] = useState<Nodes>({});
 
   useEffect(() => {
-    // fetch data...
-    const rawFetchedData = {}; // assume data was fetched
+    const getData = async () => {
+      // Simulate fetching data...
+      const response = await fetch("http://localhost:3000/treedata");
 
-    //process the raw fetched data
-    const firstNodes = { ...rawFetchedData };
+      const rawFetchedData = (await response.json()) || {}; // assume data was fetched
 
-    // update the state with the fetched nodes
-    setReactNodes(firstNodes);
+      //process the raw fetched data
+      const firstNodes: Nodes = { ...rawFetchedData };
+
+      // update the state with the fetched nodes
+      setStateNodes(firstNodes);
+    };
+
+    getData();
   }, []);
 
   // Define the return values:
-  const nodes = { ...reactNodes };
-  const setNodes = (event?: any) => {
+  const nodes: Nodes = { ...stateNodes };
+  const handleNodesEvents = (event: NodesEvent) => {
     // Use the utility functions for node operations
 
     //For example, adding a new file node into the Tree
     const newNodes = addNode(nodes);
 
     // Update the state with the new nodes
-    setReactNodes(newNodes);
+    setStateNodes(newNodes);
   };
 
-  return [nodes, setNodes];
+  return [nodes, handleNodesEvents];
 }
